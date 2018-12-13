@@ -39,10 +39,12 @@ import imgaug  # https://github.com/aleju/imgaug (pip3 install imgaug)
 # I submitted a pull request https://github.com/cocodataset/cocoapi/pull/50
 # If the PR is merged then use the original repo.
 # Note: Edit PythonAPI/Makefile and replace "python" with "python3".
-from pycocotools.coco import COCO
-from pycocotools.cocoeval import COCOeval
-from pycocotools import mask as maskUtils
-
+try:
+    from pycocotools.coco import COCO
+    from pycocotools.cocoeval import COCOeval
+    from pycocotools import mask as maskUtils
+except Exception as e:
+    pass
 import zipfile
 import urllib.request
 import shutil
